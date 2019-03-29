@@ -6,7 +6,9 @@ import { connect } from 'react-redux'
 class Leaderboard extends Component {
     render() {
         const {users} = this.props
-        const user_ids = Object.keys(users)
+        const user_ids = Object.keys(users).sort((a, b) =>
+            (users[b].questions.length + Object.keys(users[b].answers).length) -
+            (users[a].questions.length + Object.keys(users[a].answers).length))
         return (
             <Container className='leaderboard'>
                 {user_ids.map((user_id) =>

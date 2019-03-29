@@ -23,7 +23,6 @@ export default function users ( state={}, action) {
         }
         case ADD_USER_QUESTION :
         const {new_question} = action
-        console.log(action)
         updated_user = {
             ...state[new_question.author],
             questions: state[new_question.author].questions.concat(new_question.id)

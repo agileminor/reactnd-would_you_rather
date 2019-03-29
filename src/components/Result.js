@@ -8,8 +8,6 @@ class Result extends Component {
         const two_count = question.optionTwo.votes.length
         const answered_one = question.optionOne.votes.includes(user_id)
         const answered_two = question.optionTwo.votes.includes(user_id)
-        console.log(question)
-        console.log(user_id)
         return (
             <Col>
                 <Row>

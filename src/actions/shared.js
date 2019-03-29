@@ -26,7 +26,6 @@ export function handleAddQuestion (new_question) {
             .then((question) => {
             dispatch(addQuestion(question))// the question has the user ID!!!
             dispatch(addUserQuestion(question))
-            console.log(question)
         })
             .then(() => dispatch(hideLoading()))
     }
@@ -44,11 +43,3 @@ export function handleAnswerQuestion (info) {
     }
 }
 
-// export function handleAddQuestion (question) {
-//     return (dispatch, getState) => {
-//         dispatch(showLoading())
-//         return saveQuestion(question)
-//             .then((question) => dispatch(addQuestion(question)))
-//             .then(() => dispatch(hideLoading()))
-//     }
-// }

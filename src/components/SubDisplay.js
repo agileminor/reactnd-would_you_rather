@@ -6,10 +6,10 @@ class SubDisplay extends Component {
     render() {
         const {answer_type} = this.props
         const {questions, user} = this.props
-        const answered_ids = Object.keys(user.answers)
+        const answered_ids = Object.keys(user.answers).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
         const unanswered_ids = Object.keys(questions).filter((x) => {
             return Object.keys(user.answers).indexOf(x) < 0
-            })
+            }).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
         const questionIds = answer_type === 'answered'
         ? answered_ids
         : unanswered_ids
