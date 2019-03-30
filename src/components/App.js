@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import MyNav from './Nav'
 import PollDisplay from './PollDisplay'
 import Question from './Question'
@@ -9,7 +9,7 @@ import Leaderboard from './Leaderboard'
 import Login from './Login'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
-import Redirect from './Redirect'
+
 
 
 //TODO
@@ -35,10 +35,10 @@ class App extends Component {
                 {
                (this.props.loading || this.props.authedUser==='')
                 ? <Fragment>
-                    <Route path='/' exact component={Login} />
-                    <Route path='/question/:id' component={Redirect} />
-                    <Route path='/add' component={Redirect} />
-                    <Route path='/leaderboard' component={Redirect}/>
+                  <Switch>
+                  <Route path='/question/:id' component={Question} />
+                  <Route path='/' component={Login} />
+                  </Switch>
                     </Fragment>
                 : <div>
                     <Route path='/' exact component={PollDisplay} />
